@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "deltadask"
+version = "0.1.0"
+description = ""
+authors = ["Matthew Powers <matthewkevinpowers@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+deltalake = "0.6.3"
+dask = "2022.10.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "3.2.2"
+pytest-describe = "^1.0.0"
+beavis = "0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
