@@ -1,6 +1,8 @@
 import dask.dataframe as dd
 from deltalake import DeltaTable
 
+# columns: ["col1", "col2"]
+# filters: [[('col1', '==', 0), ...], ...]
 def read_delta(path, columns=None, filters=None):
     dt = DeltaTable(path)
     filenames = [path + "/" + f for f in dt.files()]
