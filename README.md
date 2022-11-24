@@ -42,8 +42,8 @@ deltadask.read_delta("path/to/delta/table", version=1).compute()
 0   0
 1   1
 2   2
-3   4
-4   5
+0   4
+1   5
 ```
 
 Delta Lake makes it easy to time travel between different versions of a Delta table with Dask.

@@ -16,3 +16,4 @@ dependencies:
   - pip
   - pip:
     - deltalake==0.6.3
+    - deltadask==0.1.0
