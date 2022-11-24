@@ -12,6 +12,8 @@ import deltadask
 ddf = deltadask.read_delta("path/to/delta/table")
 ```
 
+It's a lot more efficient for Dask to read a Delta table compared to a Parquet data lake.  Parquet tables are of course faster than CSV tables [as explained in this video](https://www.youtube.com/watch?v=9LYYOdIwQXg).  Delta tables are the next big performance improvement for Dask users.
+
 ## Basic usage
 
 Suppose you have a Delta table with the following three versions.
