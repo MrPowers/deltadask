@@ -1,0 +1,18 @@
+name: deltadask-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - ipykernel
+  - nb_conda
+  - jupyterlab
+  - jupyterlab_code_formatter
+  - isort
+  - black
+  - pytest
+  - pandas
+  - dask
+  - pip
+  - pip:
+    - deltalake==0.6.3
