@@ -1,5 +1,4 @@
 import pytest
-import beavis
 import pandas as pd
 import dask.dataframe as dd
 
@@ -11,8 +10,8 @@ def test_reader_all_primitive_types():
         "./tests/reader_tests/generated/all_primitive_types/delta"
     )
     expected_ddf = dd.read_parquet(
-        "tests/reader_tests/generated/all_primitive_types/expected/latest/table_content.parquet")
-    beavis.assert_dd_equality(actual_ddf, expected_ddf, check_index=False, check_dtype=False)
+        "tests/reader_tests/generated/all_primitive_types/expected/latest/table_content/*parquet")
+    pd.testing.assert_frame_equal(actual_ddf.compute(), expected_ddf.compute())
 
 
 # def test_read_reference_table2():
