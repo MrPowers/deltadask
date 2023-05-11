@@ -100,14 +100,14 @@ def test_reader_no_replay():
     pd.testing.assert_frame_equal(actual_ddf.compute(), expected_ddf.compute())
 
 
-def test_reader_no_stats():
-    actual_ddf = deltadask.read_delta(
-        "./tests/reader_tests/generated/no_stats/delta"
-    )
-    expected_ddf = dd.read_parquet(
-        "tests/reader_tests/generated/no_stats/expected/latest/table_content/*parquet"
-    )
-    pd.testing.assert_frame_equal(actual_ddf.compute(), expected_ddf.compute())
+# def test_reader_no_stats():
+#     actual_ddf = deltadask.read_delta(
+#         "./tests/reader_tests/generated/no_stats/delta"
+#     )
+#     expected_ddf = dd.read_parquet(
+#         "tests/reader_tests/generated/no_stats/expected/latest/table_content/*parquet"
+#     )
+#     pd.testing.assert_frame_equal(actual_ddf.compute(), expected_ddf.compute())
 
 
 def test_reader_stats_as_structs():

@@ -13,9 +13,16 @@ def read_delta(
     filters=None,
 ):
     dt = DeltaTable(table_uri, version, storage_options, without_files)
-    if filters:
-        filenames = [table_uri + "/" + f for f in dt.files_by_partitions(filters)]
-    else:
-        filenames = [table_uri + "/" + f for f in dt.files()]
-    ddf = dd.read_parquet(filenames, engine="pyarrow", columns=columns, filters=filters)
+    fragments = dt.to_pyarrow_dataset().get_fragments(filter=filters)
+    filenames = list(f"{table_uri}/{fragment.path}" for fragment in fragments)
+    ddf = dd.read_parquet(filenames, engine="pyarrow", columns=columns)
     return ddf
+
+# import pyarrow as pa
+# import pyarrow.dataset as ds
+# from deltalake import DeltaTable
+#
+# dt = DeltaTable(f"{pathlib.Path.home()}/data/delta/G1_1e8_1e2_0_0")
+# filter = ds.field('id1') == 'id016'
+# fragments = dt.to_pyarrow_dataset().get_fragments(filter=filter)
+# list(fragment.path for fragment in fragments)
