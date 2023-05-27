@@ -1,5 +1,7 @@
 # deltadask
 
+**Important Update: Development on this project has shifted to the [dask-deltatable](https://github.com/dask-contrib/dask-deltatable) repo.**
+
 A connector for reading Delta Lake tables into Dask DataFrames.
 
 Install with `pip install deltadask`.
